@@ -6,6 +6,13 @@ Key64 is a small, open-source keyboard helper for people who already use a Commo
 
 Key64 is **not** an emulator. It contains no ROMs, machine emulation, accounts, backend or tracking.
 
+## Use Key64 online
+
+**[Open Key64](https://uraroga.github.io/key64/)**
+
+No installation is required. Open Key64 in your browser and use the
+interactive Commodore 64 keyboard as a reference while using your C64 emulator.
+
 ## Prototype features
 
 - Hover over any C64 key to see its modern equivalent.
@@ -33,9 +40,9 @@ Run the data checks with Node.js:
 node tests/data.test.mjs
 ```
 
-## GitHub Pages
+## Deployment
 
-Push the repository to GitHub, then open **Settings → Pages** and deploy from the repository root on the main branch. All asset paths are relative, so Key64 also works from a project subdirectory such as `https://username.github.io/key64/`.
+GitHub Pages serves the static project directly from the root of the `main` branch. No build step or deployment workflow is required.
 
 ## Structure
 
