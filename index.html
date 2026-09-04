@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Key64 is an interactive Commodore 64 keyboard helper for VICE users.">
+  <link rel="icon" href="data:,">
+  <title>Key64 — A gateway to the 8-bit world</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#keyboard">Skip to keyboard</a>
+  <header class="site-header">
+    <div class="brand">
+      <div class="rainbow" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <p class="eyebrow">Interactive keyboard companion</p>
+        <h1>Key64</h1>
+        <p class="tagline">A gateway to the 8-bit world.</p>
+      </div>
+    </div>
+    <div class="layout-control">
+      <label for="layout-select">Modern keyboard layout</label>
+      <select id="layout-select">
+        <option value="us">US / English</option>
+        <option value="it">Italian</option>
+        <option value="de">German</option>
+        <option value="fr">French</option>
+      </select>
+      <span class="saved-note">Saved on this device</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <p class="section-kicker">VICE symbolic mapping</p>
+        <h2 id="intro-title">Meet the keyboard behind the classics.</h2>
+      </div>
+      <p>Hover over a C64 key to find its modern equivalent, click for details, or press a key on your physical keyboard to locate it below.</p>
+    </section>
+
+    <div class="mapping-notice" role="note">
+      <strong>VICE reference</strong>
+      <span>Key mappings are based on the default VICE configuration and may differ if your emulator settings have been customised.</span>
+    </div>
+
+    <section class="workbench" aria-label="Interactive keyboard workbench">
+      <div class="keyboard-scroll" tabindex="0" aria-label="Scrollable Commodore 64 keyboard area">
+        <div id="keyboard" class="c64-case" aria-label="Interactive Commodore 64 keyboard">
+          <div class="case-top">
+            <span class="case-name">KEY64</span>
+            <span class="power-label">POWER</span><span class="power-led" aria-hidden="true"></span>
+          </div>
+          <div id="keyboard-keys" class="keyboard-keys"></div>
+          <div class="case-front" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <aside id="details" class="details-panel" aria-live="polite">
+        <div class="details-heading">
+          <span class="details-icon" aria-hidden="true">i</span>
+          <p>Selected C64 key</p>
+        </div>
+        <h2 id="detail-name">RUN/STOP</h2>
+        <p id="detail-action" class="detail-action"></p>
+        <dl>
+          <div><dt>Modern key</dt><dd id="detail-mapping"></dd></div>
+          <div><dt>Modifier</dt><dd id="detail-modifier"></dd></div>
+          <div><dt>VICE status</dt><dd id="detail-status"></dd></div>
+        </dl>
+        <p id="detail-note" class="detail-note"></p>
+      </aside>
+    </section>
+
+    <p id="live-input" class="live-input" aria-live="polite"><span class="pulse" aria-hidden="true"></span>Press a key on your physical keyboard to identify it.</p>
+
+    <section class="special-section" aria-labelledby="special-title">
+      <div class="section-heading">
+        <p class="section-kicker">Quick reference</p>
+        <h2 id="special-title">The keys that make the C64 different</h2>
+      </div>
+      <div id="special-cards" class="special-cards"></div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="key-tooltip" role="tooltip" hidden></div>
+
+  <footer>
+    <p><strong>Key64</strong> is a keyboard helper, not an emulator.</p>
+    <p>Open-source prototype · No backend · Ready for GitHub Pages</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
