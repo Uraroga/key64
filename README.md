@@ -2,6 +2,10 @@
 
 **A gateway to the 8-bit world.**
 
+<p align="center">
+  <img src="docs/reference/c64_mascot.png" alt="Key64 mascot" width="360">
+</p>
+
 Key64 is a small, open-source keyboard helper for people who already use a Commodore 64 emulator. It shows an interactive C64 keyboard and explains which modern key or combination corresponds to each C64 key.
 
 Key64 is **not** an emulator. It contains no ROMs, machine emulation, accounts, backend or tracking.
@@ -56,6 +60,7 @@ js/data/descriptions.js    Key explanations
 js/data/layouts.js         Modern host-layout geometry and chords
 js/emulators/vice.js       VICE-specific mapping profile
 tests/data.test.mjs        Structural mapping checks
+docs/reference/c64_mascot.png  README mascot image
 docs/verification.md       Verified and provisional mapping boundary
 ```
 

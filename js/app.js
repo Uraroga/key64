@@ -1,4 +1,4 @@
-import { keyboardRows, allKeyIds } from './data/keyboard.js';
+import { physicalKeyboard, allKeyIds } from './data/keyboard.js';
 import { descriptions, specialCards } from './data/descriptions.js';
 import { layouts, resolveCharacter } from './data/layouts.js';
 import { mappingFor } from './emulators/vice.js';
@@ -22,24 +22,37 @@ let layoutId = localStorage.getItem('key64-layout') || 'us';
 if (!layouts[layoutId]) layoutId = 'us';
 layoutSelect.value = layoutId;
 
-function createKey([id, primary, secondary, className]) {
+const alphabeticKeyIds = new Set('qwertyuiopasdfghjklzxcvbnm'.split(''));
+
+function createKey({ id, primary, secondary, row, column, width, className }) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = `c64-key ${className}`.trim();
   button.dataset.keyId = id;
+  button.style.setProperty('--key-row', row);
+  button.style.setProperty('--key-column', column);
+  button.style.setProperty('--key-span', width);
   button.setAttribute('aria-label', `${descriptions[id]?.name || primary} — show modern keyboard mapping`);
   button.innerHTML = `<span class="primary"></span><span class="secondary"></span>`;
   button.querySelector('.primary').textContent = primary;
-  button.querySelector('.secondary').textContent = secondary;
+  button.querySelector('.secondary').textContent = alphabeticKeyIds.has(id) ? '' : secondary;
   return button;
 }
 
-keyboardRows.forEach((row, index) => {
-  const rowElement = document.createElement('div');
-  rowElement.className = `key-row${index === keyboardRows.length - 1 ? ' space-row' : ''}`;
-  row.forEach(key => rowElement.append(createKey(key)));
-  keysRoot.append(rowElement);
-});
+const mainKeyboard = document.createElement('div');
+mainKeyboard.className = 'main-keyboard';
+mainKeyboard.setAttribute('role', 'group');
+mainKeyboard.setAttribute('aria-label', 'C64 main keyboard');
+
+physicalKeyboard.mainKeys.forEach(key => mainKeyboard.append(createKey(key)));
+mainKeyboard.append(createKey(physicalKeyboard.spaceKey));
+
+const functionBank = document.createElement('div');
+functionBank.className = 'function-bank';
+functionBank.setAttribute('role', 'group');
+functionBank.setAttribute('aria-label', 'C64 function keys');
+physicalKeyboard.functionBank.forEach(key => functionBank.append(createKey(key)));
+keysRoot.append(mainKeyboard, functionBank);
 
 specialCards.forEach(([id, title, copy]) => {
   const card = document.createElement('article');
