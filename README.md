@@ -14,19 +14,30 @@ Key64 is **not** an emulator. It contains no ROMs, machine emulation, accounts, 
 
 **[Open Key64](https://uraroga.github.io/key64/)**
 
+<p align="center">
+  <img src="docs/images/key64-preview.png" alt="Key64 interactive Commodore 64 keyboard" width="1200">
+</p>
+
 No installation is required. Open Key64 in your browser and use the
 interactive Commodore 64 keyboard as a reference while using your C64 emulator.
 
-## Prototype features
+## Features
 
 - Hover over any C64 key to see its modern equivalent.
 - Click a key for its purpose, modifiers and mapping notes.
 - Press a physical key to highlight the corresponding C64 key.
-- Select US/English, Italian, German or French host keyboard layouts.
+- Explore a readable C64C-style keyboard with a separate function-key bank.
 - Read concise explanations of the C64's unusual keys.
 - Use the page with mouse, keyboard or assistive technology.
 
-Version 1 references the current VICE GTK3 **symbolic** keymaps. Mappings may differ when VICE settings are customised, when another VICE UI backend is used, or when another emulator is used. See [docs/verification.md](docs/verification.md) for the exact verification boundary.
+## Supported host keyboard layouts
+
+- US / English
+- Italian
+- German
+- French
+
+Key64 references the current VICE GTK3 **symbolic** keymaps. Mappings may differ when VICE settings are customised, when another VICE UI backend is used, or when another emulator is used. See [docs/verification.md](docs/verification.md) for the exact verification boundary.
 
 ## Run locally
 
@@ -61,6 +72,7 @@ js/data/layouts.js         Modern host-layout geometry and chords
 js/emulators/vice.js       VICE-specific mapping profile
 tests/data.test.mjs        Structural mapping checks
 docs/reference/c64_mascot.png  README mascot image
+docs/images/key64-preview.png  Current application screenshot
 docs/verification.md       Verified and provisional mapping boundary
 ```
 
